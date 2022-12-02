@@ -13,6 +13,16 @@ public class Ware {
         this.quantity = quantity;
     }
 
+    @Override
+    public String toString() {
+        return "Ware{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
+
     public Integer getQuantity() {
         return quantity;
     }

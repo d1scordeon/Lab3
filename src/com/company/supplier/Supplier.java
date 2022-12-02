@@ -38,7 +38,7 @@ public class Supplier {
                 if (w.getQuantity() - ware.getQuantity() < 0) {
                     throw new IllegalArgumentException(String.format("There is no enough ware with id %s in the storage", w.getId()));
                 }
-                w.setQuantity(ware.getQuantity() - w.getQuantity());
+                w.setQuantity(w.getQuantity() - ware.getQuantity());
             } else {
                 throw new IllegalArgumentException(String.format("There is no ware with id %s in the storage", ware.getId()));
             }
@@ -108,6 +108,6 @@ public class Supplier {
                 .flatMap(document -> document.getGoods().stream())
                 .map(ware -> ware.getQuantity() * ware.getPrice())
                 .mapToInt(Integer::intValue)
-                .max().orElse(0);
+                .sum();
     }
 }
